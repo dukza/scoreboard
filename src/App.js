@@ -45,7 +45,7 @@ class App extends React.Component {
 					player.score += delta;
 				}
 			});
-			return players;
+			return { players };
 		});
 	}
 }
