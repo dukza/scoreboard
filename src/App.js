@@ -22,7 +22,7 @@ class App extends React.Component {
 					this.state.players.map(player =>
 						<Player name={player.name} score={player.score} id={player.id} key={player.id}
 										removePlayer={this.handleRemovePlayer.bind(this)}
-										changeScore={this.handleChangeScore} />)
+										changeScore={this.handleChangeScore.bind(this)} />)
 				}
 			</div>
 		);
@@ -37,6 +37,16 @@ class App extends React.Component {
 	}
 	handleChangeScore(id, delta) {
 		console.log('handleChangeScore:', id, delta);
+		this.setState(prevState => {
+			// 새로운 배열을 리턴
+			const players = [ ...prevState.players ]
+			players.forEach(player => {
+				if (player.id === id) {
+					player.score += delta;
+				}
+			});
+			return players;
+		});
 	}
 }
 
