@@ -1,24 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Header} from './components/Header';
 
-const players = [
-  {name: 'LDK', score: 30, id: 1},
-  {name: 'HONG', score: 40, id: 2},
-  {name: 'KIM', score: 50, id: 3},
-  {name: 'PARK', score: 60, id: 4},
-];
-
-const Header = ({title, totalPlayers}) => {
-  // console.log(props);
-  // const {title, totalPlayers} = props; // desctruct assignment
-  return (
-    <header className="header">
-      <h1 className="h1">{title}</h1>
-      <span className="stats">Plaers: {totalPlayers}</span>
-    </header>
-  );
-}
 // function  컴포넌트를 class 컴포넌트로 전환
 class Counter extends React.Component {
   state = {
