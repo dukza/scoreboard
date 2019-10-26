@@ -6,7 +6,7 @@ export class Counter extends React.Component {
 		console.log('increment: ', this);
 
 		// this.state.score += 1; // => 안된다.
-		this.setState(prevState => ({score: prevState.score + 1}));
+		this.props.changeScore();
 	}
 
 	render() {

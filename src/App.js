@@ -19,8 +19,10 @@ class App extends React.Component {
 
         {/*Player's List*/}
         {
-          this.state.players.map(player => <Player name={player.name} score={player.score} id={player.id}
-                                                   key={player.id} removePlayer={this.handleRemovePlayer.bind(this)} />)
+          this.state.players.map(player =>
+            <Player name={player.name} score={player.score} id={player.id} key={player.id}
+                    removePlayer={this.handleRemovePlayer.bind(this)}
+                    changeScore={this.handleChangeScore} />)
         }
       </div>
     );
@@ -32,6 +34,9 @@ class App extends React.Component {
       const players = prevState.players.filter(player => player.id !== id);
       return {players};
     })
+  }
+  handleChangeScore() {
+    console.log('handleChangeScore');
   }
 }
 
