@@ -25,7 +25,7 @@ class App extends React.Component {
 										removePlayer={this.handleRemovePlayer.bind(this)}
 										changeScore={this.handleChangeScore.bind(this)} />)
 				}
-				<AddPlayerForm></AddPlayerForm>
+				<AddPlayerForm addPlayer={this.handleAddPlayer.bind(this)}></AddPlayerForm>
 			</div>
 		);
 	}
@@ -56,6 +56,10 @@ class App extends React.Component {
 			})
 			return { players };
 		});
+	}
+
+	handleAddPlayer(name) {
+		console.log('handleAddPlayer: ', name);
 	}
 }
 
