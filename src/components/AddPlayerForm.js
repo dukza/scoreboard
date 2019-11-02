@@ -1,14 +1,7 @@
 import React from 'react';
 
 export class AddPlayerForm extends React.Component {
-	state = {
-		value: ''
-	}
-
-	handleValueChange = (e) => {
-		console.log(e);
-		this.setState({value: e.target.value});
-	}
+	textInput = React.createRef();
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -19,14 +12,16 @@ export class AddPlayerForm extends React.Component {
 			return;
 		}
 
-		this.props.addPlayer(this.state.value);
+		this.props.addPlayer(this.textInput.current.value);
+		// 폼 초기화
+		e.currentTarget.reset();
 	}
 
 	render() {
 		return (
 			<form className="form" onSubmit={this.handleSubmit.bind(this)} noValidate>
 				<input id="player" className="input" type="text" placeholder="enter a player's name" required
-					value={this.state.value} onChange={this.handleValueChange}/>
+					ref={this.textInput} />
 				<input className="input" type="submit" value="Add Player"></input>
 			</form>
 		);
