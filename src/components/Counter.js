@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // function  컴포넌트를 class 컴포넌트로 전환
 export class Counter extends React.Component {
@@ -18,4 +19,10 @@ export class Counter extends React.Component {
 			</div>
 		);
 	}
+}
+
+Counter.propTypes = {
+	id: PropTypes.number,
+	score: PropTypes.number,
+	changeScore: PropTypes.func
 }
